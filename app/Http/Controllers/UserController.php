@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\ArchivoController;
 use App\Models\Archivo;
 use App\Models\User;
+use App\Models\Statu;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -19,9 +20,11 @@ class UserController extends Controller
         
         // Obtener el usuario autenticado, si hay alguno
         $usuario = auth()->user();
+
+        $status = Statu::all();
         
         // Retornar la vista con la lista de usuarios y el usuario autenticado (si está definido)
-        return view('usuario.index', ['usuarios' => $usuarios, 'usuario' => $usuario]);
+        return view('usuario.index', ['usuarios' => $usuarios, 'usuario' => $usuario, 'status' => $status]);
     
     }
 
@@ -59,9 +62,10 @@ class UserController extends Controller
 
         // Obtener todas las instituciones de la BD (incluida la recién creada)
         $usuarios = User::all();
+        $status = Statu::all();
 
         // Redirigir a la vista principal con la lista actualizada de instituciones
-        return view('admin.instituciones', ['usuarios' => $usuarios]);
+        return view('admin.instituciones', ['usuarios' => $usuarios, 'status' => $status]);
     }
 
 

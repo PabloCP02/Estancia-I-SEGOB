@@ -1,7 +1,6 @@
 @extends('layouts/template')
 
-
-@include('layouts/header')
+@include('layouts/headerUser')
 @include('layouts/sidebarUser')
 
 @section('contenido')

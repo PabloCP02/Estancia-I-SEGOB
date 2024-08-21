@@ -7,18 +7,22 @@
     outline: none;
     border: none;
     font-family: Arial, Helvetica, sans-serif;
+    
+}
+.verMas{
+    background-color: #1B65A6;
 }
 .btnIS{
-    background-color: #006b04;
+    background-color: #1E5B4D;
 }
-.btn{
+/* .btn{
     color: white;
-    background-color: #009205;
+    background-color: #1E5B4D;
 }
 .btn:hover{
     color: white;
-    background-color: #006b04;
-}
+    background-color: #1E5B4D;
+} */
 .username{
     color: #B62118;
     font-weight: bold;
@@ -26,14 +30,14 @@
 
 button {
     padding: 5px 10px;
-    background-color: #4CAF50;
+    background-color: #1E5B4D;
     color: white;
     border: none; 
     cursor: pointer;
   }
 
   button:hover {
-    background-color: #45a049;
+    background-color: #1E5B4D;
   }
 
   input[type="file"] {
@@ -80,14 +84,25 @@ body{
 
 
         font-family: Arial, Helvetica, sans-serif;
+    
+    /* background: url("/imagenes/fondo_qroo.jpg") ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.6; */
 }
 
 
-.container{
+/*PARA EL HEADER*/
+.containerHeader{
     max-width: 1980px;
     margin: 0 auto;
-    
-
+    /* background: url("/imagenes/fondo_qroo.jpg") ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;   */
+    background-color: #bcb8b9;
+    /* opacity: 0.8; */
 }
 
 .back{
@@ -103,22 +118,14 @@ body{
     right: 0%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    
-    background-color: #313450;
-}
+    justify-content: space-between;  
 
-/* .logo{
-    font-size: 24px;
-    color: #ffffff;
-    font-weight: 800;
-    text-transform: uppercase;
     
-} */
+    
+}
 
 .logo img{
     /*position: absolute;*/
-    width: 200px;
     height: 50px;
     
 }
@@ -127,18 +134,21 @@ body{
     position: relative;
     float: right; /*POSICION DE LOS ICONOS DE SESION*/
     padding-right: 30px;
-
 }
 
+/* NAVBAR HEADER */
 .menu .navbar ul li a{
     font-size: 18px;
     padding: 10px;
-    color: rgb(255, 255, 255);
+    color: rgb(18, 17, 17);
     display: block;
+}
+footer{
+    background-color: #AB0A3D;
 }
 
 .menu .navbar ul li a:hover{
-    color: rgb(126, 211, 211);
+    color: #AB0A3D;
     
 }
 
@@ -167,7 +177,6 @@ nav{
     padding-left: 5%;
     padding-right: 5%;
     font-weight: bold;
-   
 }
 
 .user-img{
@@ -178,38 +187,60 @@ nav{
 
 .sidebar {
     position: fixed;
-    top: 70px;
+    top: 78px;
     left: 0;
     height: 100vh;
     width: 100px;
-    background-color: #313450;
+    background-color: #AB0A3D;
     padding: 0.4rem 0.8rem;
     padding-top: 80px;
     transition: all 0.5s ease;
     z-index: 10; /* Asegurémonos de que el z-index del sidebar sea menor que el del content-wrapper */
 }
 
-/*ESTILOS DE FORMULARIO INICIO SESION*/
-.content-wrapper{
-    margin-left: 130px ;
-    margin-right: 130px ;
-    margin-top: 80px;
+.contenidoInicio{
+    position: absolute;
+    top: 0px;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+
+    
+    background: url("/imagenes/Fondo2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+
+.contenidoRegistro{
+    position: absolute;
+    top: 1%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    
+    background: url("/imagenes/Fondo2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
 }
 
 
-.sidebar .fa-solid{
+.sandwich{
     color: #eee;
 }
 
-/* .sidebar .fa-regular{
-    color: #eee;
-}
-
-.sidebar .fa-regular:hover{
-    color: #020202;
-} */
 
 .sidebar.active ~ content-wrapper{
+    margin-top: 0%;
     left: 250px; /* Cuando la barra lateral está abierta, ajustar el margen */
     width: calc(100% - 250px);
 }
@@ -248,7 +279,7 @@ nav{
 .sidebar .top .logo {
     color: #ffffff;
     display: flex;
-    height: 50px;
+    height: 20px;
     width: 100%;
     align-items: center;
     pointer-events: none;
@@ -342,7 +373,7 @@ nav{
     top: 50px;
     transform: translate(-50%, -50%);
     /*background-color: aquamarine;*/
-    box-shadow: 0 0.4rem 0.8rem rgba(155, 201, 231, 0.986);
+    box-shadow: 0 0.4rem 0.8rem rgba(4, 4, 4, 0.986);
     border-radius: .6rem;
     padding: .4rem 1.2rem;
     line-height: 1.8rem;
@@ -364,13 +395,14 @@ nav{
     position: relative; /* Cambiar a posición relativa */
 }
 
+/*CUADRO EDITAR Y CERRAR SESION */
 .navbar .dropdown .dropdown-menu {
     display: none;
     position: absolute;
     /*top: calc(100% + 10px);  Colocar el dropdown debajo del enlace */
     top: 40px;
     left: 0;
-    background-color: #313450;
+    background-color: #bcb8b9;
     min-width: 10px;
     z-index: 1;
     padding: 1px 0;
@@ -387,17 +419,69 @@ nav{
 .navbar .dropdown .dropdown-item {
     display: block;
     padding: 7px;
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     transition: background-color 0.3s;
 }
 
+/*LETRAS INICIO SESION*/
 .navbar .dropdown .dropdown-item:hover {
-    background-color: #fffefe;
-    color: black;
+    background-color: #f1f1f1;
+    color: #AB0A3D;
 }
 
 
+.sidebarUser {
+    text-align: center;
+    padding: 15px;
+    background-color: #AB0A3D;
+    position: fixed;
+    top: 80px; /* Adjust according to the height of the header */
+    width: 100%;
+    z-index: 999;
+}
+
+.sidebarUser ul{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebarUser  li{
+    list-style: none;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.sidebarUser ul li a{
+    display: inline;
+    padding-left: 45px;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 0.9rem;   
+}
+
+/* .sidebarUser ul li a:hover{
+    background-color: #ffffff; /*blanco*/
+   /* color:#AB0A3D;}   */
+
+
+.sidebarUser a::after{
+    content:"";
+    position: absolute;
+    background-color: #dedede;
+    height: 2px;
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.sidebarUser a:hover::after{
+    width: 50%;
+}
 
 
 .inicioSesion, .registro{
@@ -405,19 +489,22 @@ nav{
     width: 600px;
     border: 2px solid #313450;
     padding: 6rem;
-    background-color: #313450;;
+    background-color: #AB0A3D;
     border: none;
     border-radius: 20px;
     color: aliceblue;
+    opacity: 1;
+    margin-left: 80%;
+    margin-right: 80%;
 }
 
 h3{
     display: block;
     border: 2px solid #313450;
-    width: 95%;
+    width: 100%;
     text-align: center;
     padding: 10px;
-    margin: 10px;
+    margin: 10px 0;
     border-radius: 10px;
 }
 
@@ -439,7 +526,7 @@ input{
 
 button{
     float: right;
-    background-color: rgb(84, 209, 168);
+    background-color: rgb(6, 6, 6);
     padding: 0.5rem;
     color: white;
     border: none;
@@ -453,16 +540,21 @@ button:hover{
     color: black;
 }
 
+/* BOTON SESION */
 .sesion{
     float: left;
-    color: #86ec08;
+    /*color: #86ec08;*/
+    color: white;
     margin-left: 10px;
     padding: .5rem;
     text-decoration: none;
+
+    
 }
 
 .sesion:hover{
-    color: white;
+    /*color: white; */
+    color: #86ec08;
 }
 
 .link{

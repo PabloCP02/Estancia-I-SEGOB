@@ -1,5 +1,5 @@
 @extends('layouts/template')
-@include('layouts/header')
+@include('layouts/headerUser')
 @include('layouts/sidebarUser')
 @section('contenido')
 
@@ -13,14 +13,16 @@
                 @auth
                   <h1 class="username text-center mt-2"> {{auth()->user()->username}} </h1>
                 @endauth
+                <!-- Responsable de la dependencia -->
+                <p class="ps-4"><strong>Responsable: </strong>{{ $usuario->name }}</p>
                 <!-- Instrucciones de descarga -->
-                <p class="text-center mt-2">En esta sección, puedes descargar los formularios correspondientes al censo 2023. Cuando finalices con el llenado de estos, subelos en el apartado de subir formularios.</p>
+                <p class="text-center mt-2">En esta sección, puedes descargar los formularios correspondientes al censo actual. Cuando finalices con el llenado de estos, subelos en el apartado de subida formularios.</p>
                 <!-- Descargar todo -->
-                <a class="btn mt-1" href="{{ asset('storage/01_2_CNGE_2023_M1_S2_VF_02mar23.xlsx') }}" download="Bloque de cuestionarios.rar">
-                  <i class="fa-solid fa-download"></i> Descargar todos los formularios
+                <a class="btn bg-success text-white mt-1" href="{{ route('downloadAll') }}">
+                    <i class="fa-solid fa-download"></i> Descargar todos los formularios
                 </a>
                 <!-- Tabla de descarga -->
-                <table class="table table-striped mt-3 text-center">
+                <table class="table table-hover mt-3 text-center">
                   <!-- Encabezado tabla -->
                   <tr>
                       <th scope="col">&nbsp;</th>
@@ -28,117 +30,24 @@
                       <th scope="col">&nbsp;</th>
                       <th scope="col">&nbsp;</th>
                   </tr>
-                  <!-- Formularios -->
-                  <!-- 1 -->
-                  <tr>
-                    <td class="ps-4">&nbsp;</td>
-                    <td class="col-4">01_1_CNGE_2023_M1_S1_VF_02mar23</td>
-                    <td>
-                      <a class="descarga" download="01_1_CNGE_2023_M1_S1_VF_02mar23.xlsx" href="{{ asset('storage/01_1_CNGE_2023_M1_S1_VF_02mar23.xlsx') }}">
-                        <i class="fa-solid fa-download"></i>
-                      </a>
-                    </td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <!-- 2 -->
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td class="col-4">01_2_CNGE_2023_M1_S2_VF_02mar23</td>
-                    <td>
-                      <a class="descarga" download="01_2_CNGE_2023_M1_S2_VF_02mar23.xlsx" href="{{ asset('storage/01_2_CNGE_2023_M1_S2_VF_02mar23.xlsx') }}">
-                        <i class="fa-solid fa-download"></i>
-                      </a>
-                    </td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <!-- 3 -->
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td class="col-4">01_3_CNGE_2023_M1_S3_VF_01jun23</td>
-                    <td>
-                      <a class="descarga" download="01_3_CNGE_2023_M1_S3_VF_01jun23.xlsx" href="{{ asset('storage/01_3_CNGE_2023_M1_S3_VF_01jun23.xlsx') }}">
-                        <i class="fa-solid fa-download"></i>
-                      </a>
-                    </td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <!-- 4 -->
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td class="col-4">01_4_CNGE_2023_M1_S4_VF_28mar23</td>
-                    <td>
-                      <a class="descarga" download="01_4_CNGE_2023_M1_S4_VF_28mar23.xlsx" href="{{ asset('storage/01_4_CNGE_2023_M1_S4_VF_28mar23.xlsx') }}">
-                        <i class="fa-solid fa-download"></i>
-                      </a>
-                    </td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <!-- 5 -->
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td class="col-4">01_5_CNGE_2023_M1_S5_VF_02mar23</td>
-                    <td>
-                      <a class="descarga" download="01_5_CNGE_2023_M1_S5_VF_02mar23.xlsx" href="{{ asset('storage/01_5_CNGE_2023_M1_S5_VF_02mar23.xlsx') }}">
-                        <i class="fa-solid fa-download"></i>
-                      </a>
-                    </td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <!-- 6 -->
-                   <tr>
-                    <td>&nbsp;</td>
-                    <td class="col-4">01_6_CNGE_2023_M1_S6_VF_02mar23</td>
-                    <td>
-                      <a class="descarga" download="01_6_CNGE_2023_M1_S6_VF_02mar23.xlsx" href="{{ asset('storage/01_6_CNGE_2023_M1_S6_VF_02mar23.xlsx') }}">
-                        <i class="fa-solid fa-download"></i>
-                      </a>
-                    </td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <!-- 7 -->
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td class="col-4">01_7_CNGE_2023_M1_S7_VF_02mar23</td>
-                    <td>
-                      <a class="descarga" download="01_7_CNGE_2023_M1_S7_VF_02mar23.xlsx" href="{{ asset('storage/01_7_CNGE_2023_M1_S7_VF_02mar23.xlsx') }}">
-                        <i class="fa-solid fa-download"></i>
-                      </a>
-                    </td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <!-- 8 -->
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td class="col-4">01_11_CNGE_2023_M1_S11_VF_02mar23</td>
-                    <td>
-                      <a class="descarga" download="01_11_CNGE_2023_M1_S11_VF_02mar23.xlsx" href="{{ asset('storage/01_11_CNGE_2023_M1_S11_VF_02mar23.xlsx') }}">
-                        <i class="fa-solid fa-download"></i>
-                      </a>
-                    </td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <!-- 9 -->
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td class="col-4">01_12_CNGE_2023_M1_S12_VF_19may23</td>
-                    <td>
-                      <a class="descarga" download="01_12_CNGE_2023_M1_S12_VF_19may23.xlsx" href="{{ asset('storage/01_12_CNGE_2023_M1_S12_VF_19may23.xlsx') }}">
-                        <i class="fa-solid fa-download"></i>
-                      </a>
-                    </td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <!-- 10 -->
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td class="col-4">02_CNGE_2023_M2_VF_01Jun23</td>
-                    <td>
-                      <a class="descarga" download="02_CNGE_2023_M2_VF_01Jun23.xlsx" href="{{ asset('storage/02_CNGE_2023_M2_VF_01Jun23.xlsx') }}">
-                        <i class="fa-solid fa-download"></i>
-                      </a>
-                    </td>
-                    <td>&nbsp;</td>
-                  </tr>
+                  <!-- Formularios asignados-->
+                  @foreach($status as $statu)
+                      @if(auth()->user()->id == $statu->dependencia_id)
+                      <tbody>
+                          <tr>
+                              <td>&nbsp;</td>
+                              <td class="col-4">{{ basename($statu->formulario) }}</td>
+                              <td>
+                                  <a class="descarga" download="{{ $statu->formulario }}" href="{{ asset($statu->formulario) }}">
+                                      <i class="fa-solid fa-download"></i>
+                                  </a>
+                              </td>
+                              <td>&nbsp;</td>
+                          </tr>
+                      </tbody>
+                      @endif
+                  @endforeach
+
                 </table>
             </div>
 

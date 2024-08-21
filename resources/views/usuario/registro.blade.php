@@ -4,10 +4,10 @@
 @include('layouts/headerUser')
 
 @section('contenido')
-<div class="content-wrapper">
-<div class="row">
-    <div class="col-md-11">
-        <div class="card">
+ <div class="contenidoRegistro">
+<div class="row"> 
+   <!-- <div class="col-md-11">
+        <div class="card"> -->
 
             @if($errors->any())
             <div class="alert alert-warning" role="alert">
@@ -50,8 +50,8 @@
 
 </div>
 </div>
-</div>
-</div>
+<!-- </div>
+</div> -->
 
     
 

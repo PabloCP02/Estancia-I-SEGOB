@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $usuario = new User;
+        $usuario->name="Maria Cocom";
         $usuario->username = 'Admin';
         $usuario->email = 'admin@admin.com';
         $usuario->password = '12345678';

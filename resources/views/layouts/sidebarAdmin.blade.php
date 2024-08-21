@@ -1,12 +1,9 @@
-
-<div class="sidebar">
+<div class="sidebar fixed">
     <div class="top">
-        <i class="fa-solid fa-bars" id="btn"></i>
+        <i class="sandwich fa-solid fa-bars" id="btn"></i>
     </div>
-    <div class="user">
-        <div>
-           
-        </div>
+    <div class="user mx-0 px-0">
+       
     </div>
     <ul class="mx-0 px-0">
         <li>
@@ -14,15 +11,28 @@
             <i class="fa-solid fa-house iconos"></i>
                 <span class="nav-item">Inicio</span>
             </a>
-            <span class="tooltip">Inicio</span>
         </li>
 
         <li>
             <a href="{{ url('/altaInstituciones') }}">
-                <i class="fa-solid fa-plus iconos"></i>
-                <span class="nav-item">Alta de instituciones</span>
+            <i class="fa-solid fa-building-columns iconos"></i>
+                <span class="nav-item">Dependencias</span>
             </a>
-            <span class="tooltip">Alta de instituciones</span>
+        </li>
+
+        
+        <li>
+            <a href="{{ url('/formularios') }}">
+                <i class="fa-regular fa-file-lines"></i>
+                <span class="nav-item">Formularios</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url('/historico') }}">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span class="nav-item">Historico</span>
+            </a>
         </li>
 
         <!-- <li>

@@ -19,16 +19,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->nullable();
-            $table->string('rutaF1')->nullable();
-            $table->string('rutaF2')->nullable();
-            $table->string('rutaF3')->nullable();
-            $table->string('rutaF4')->nullable();
-            $table->string('rutaF5')->nullable();
-            $table->string('rutaF6')->nullable();
-            $table->string('rutaF7')->nullable();
-            $table->string('rutaF8')->nullable();
-            $table->string('rutaF9')->nullable();
-            $table->string('rutaF10')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

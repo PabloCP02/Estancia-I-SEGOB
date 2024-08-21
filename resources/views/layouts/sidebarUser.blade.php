@@ -1,40 +1,47 @@
 
-<div class="sidebar">
-    <div class="top">
+<div class="mt-3 sidebarUser fixed">
+     <!-- <div class="top">
         <i class="fa-solid fa-bars" id="btn"></i>
     </div>
     <div class="user">
         <div>
            
         </div>
-    </div>
+    </div>  -->
     <ul class="mx-0 px-0">
         <!-- Home -->
-        <li>
-            <a href="{{ url ('/users') }}">
-                <i class="fa-solid fa-house iconos"></i>
-                <span class="nav-item">Inicio</span>
+        <li >
+            <a class="usuario" href="{{ url ('/users') }}">
+                <i class="fa-solid fa-house iconos"></i> &nbsp; Inicio 
             </a>
-            <span class="tooltip">Inicio</span>
         </li>
         <!-- Descargar formularios -->
         <li>
-            <a href="{{ url('usuario/'.$usuario->id.'/descargar') }}">
-                <i class="fa-solid fa-download iconos"></i>
-                <span class="nav-item">Descargar formularios</span>
+            <a class="usuario" href="{{ url('usuario/'.$usuario->id.'/descargar') }}">
+                <i class="fa-solid fa-file-arrow-down"></i>
+                <span class="nav-item"> &nbsp; Descarga formularios </span>
             </a>
-            <span class="tooltip">Descargar formularios</span>
         </li>
         <!-- Subir formularios -->
         <li>
-            <a href="{{ url('usuario/'.$usuario->id) }}">
-                <i class="fa-solid fa-upload iconos"></i>
-                <span class="nav-item">Subir formularios</span>
+            <a class="usuario" href="{{ url('usuario/'.$usuario->id) }}">
+                <i class="fa-solid fa-file-arrow-up"></i> Subida formularios 
             </a>
-            <span class="tooltip">Subir formularios</span>
         </li>
-
-
+        <!-- Estatus formularios
+        <li>
+            <a class="usuario" href="{{ url('usuario/'.$usuario->id) }}">
+                <i class="fa-solid fa-file-circle-check"></i>
+                <span class="nav-item">&nbsp; Estatus  </span>
+            </a>
+        </li> -->
+        <!-- Capacitación -->
+        <li>
+            <a class="usuario" href="{{ url('usuario/'.$usuario->id) }}">
+            <i class="fa-solid fa-person-chalkboard"></i>
+                <span class="nav-item">Capacitación</span>
+            </a>
+        </li>
     </ul>
 </div>
 
