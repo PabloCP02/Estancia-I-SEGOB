@@ -93,31 +93,33 @@ class FormularioController extends Controller
     {
         $formularios = Formulario::all();
         $usuarios = User::all();
-        // Obtener el usuario autenticado, si hay alguno
         $usuario = auth()->user();
-        // Crear objeto para guardar los datos en la BD
-        $formulario = new Formulario();
 
-        // Condicion para verificar si se esta cargando la img del formulario
-        if($request->hasFile('formulario')){
-            // Obtener el archivo
-            $file = $request->file('formulario');
-            // Guardar la carpeta de destino en una variable para después concatenar con la img
-            $destino = 'uploads/';
-            // Asignar nombre a la imagen
-            $fileName = $file->getClientOriginalName();
-            // Mover la imagen a la carpeta de destino
-            $uploadSuccess = $request->file('formulario')->move($destino, $fileName);
-            $formulario->formulario = $destino.$fileName;
+        // Verifica si hay archivos subidos
+        if($request->hasFile('formulario')) {
+            foreach ($request->file('formulario') as $file) {
+                // Crear nuevo objeto Formulario para cada archivo
+                $formulario = new Formulario();
+
+                // Guardar la carpeta de destino en una variable
+                $destino = 'uploads/';
+                // Obtener el nombre original del archivo
+                $fileName = $file->getClientOriginalName();
+                // Mover el archivo a la carpeta de destino
+                $file->move($destino, $fileName);
+
+                // Guardar la ruta del archivo en la BD
+                $formulario->formulario = $destino . $fileName;
+
+                // Guardar el registro en la base de datos
+                $formulario->save();
+            }
         }
 
-        // Si todos los datos son correctos entonces se guarda en la tabla de la BD
-        // (nombre del campo de la tabla) -> (name del input)
-        $formulario->save(); // Guardar registro en la BD
-        // cuando guarde, presentar un mensaje en la vista mensaje
+        // Redirigir y enviar mensaje
         return redirect()->route('formularios.index')->with(['usuarios' => $usuarios, 'usuario' => $usuario, 'formularios' => $formularios]);
-
     }
+
 
     /**
      * Display the specified resource.

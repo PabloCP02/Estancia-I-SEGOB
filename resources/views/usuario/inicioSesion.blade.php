@@ -27,11 +27,11 @@
                 <hr>
                 <i class="fa-regular fa-user"></i>
                 <label class="text-white"> Correo electrónico </label>
-                <input class="text-black" type="text" name="username" placeholder="Correo electrónico">
+                <input class="text-black" type="text" name="username" placeholder="Correo electrónico" required>
 
                 <i class="fa-solid fa-lock"></i>
                 <label class="text-white"> Contraseña </label>
-                <input class="text-black" type="password" name="password"  placeholder="Contraseña">
+                <input class="text-black" type="password" name="password"  placeholder="Contraseña" required>
                 <hr>
                 <button class="btnIS" type="submit" value="Login">Iniciar sesión</button>
                 <!--<a class="sesion"  href="{{ url('/registro') }}">Crear una cuenta</a>-->

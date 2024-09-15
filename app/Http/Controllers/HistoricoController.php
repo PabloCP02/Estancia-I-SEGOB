@@ -74,55 +74,68 @@ class HistoricoController extends Controller
     }
 
 
-    // Método para descargar en un archivo comprimido los formularios asignados
+    // Método para descargar en un archivo comprimido los formularios asignados completados
     public function finalizar(Request $request)
-{
-    $historicoId = $request->input('userId');
-    $historico = Historico::find($historicoId);
-
-    // Establece la fecha actual en la columna 'fin'
-    $historico->fin = now();
-    
-    $zip = new ZipArchive;
-
-    // Genera un nombre de archivo seguro
-    // $fileName = 'historico_' . now()->format('Ymd_His') . '.zip';
-    $fileName = 'historico_' . now()->format('Y-m-d') . '.zip';
-    $filePath = public_path('completado/' . $fileName);
-
-
-    if ($zip->open($filePath, ZipArchive::CREATE) === TRUE) {
-        // Obtén los archivos a incluir en el zip
+    {
+        $historicoId = $request->input('userId');
+        $historico = Historico::find($historicoId);
         $status = Statu::all();
+        $historicos = Historico::orderBy('created_at', 'desc')->get();
+        // Establece la fecha actual en la columna 'fin'
+        $historico->fin = now();
+        
+        $zip = new ZipArchive;
+
+        // Genera un nombre de archivo seguro
+        // $fileName = 'historico_' . now()->format('Ymd_His') . '.zip';
+        $fileName = 'historico_' . now()->format('Y-m-d') . '.zip';
+        $filePath = public_path('completado/' . $fileName);
+
+        // Declarar aux para llevar conteo de archivos completados
+        $aux = 0;
+        // Ciclo para realizar el conteo
         foreach ($status as $statu) {
             if($statu->revision != "" && $statu->completado == 1){
-                $file = public_path($statu->revision);
-                if (file_exists($file)) {
-                    $relativeName = basename($file);
-                    $zip->addFile($file, $relativeName);
-                }
+                $aux++;
             }
         }
+        // dd($aux++);
+        // Si el conteo total es 0 muestra mensaje de que no hay archivos para descargar
+        // Si es diferente a 0 realiza la descarga
+        if($aux != 0){
+            if ($zip->open($filePath, ZipArchive::CREATE) === TRUE) {
+                // Obtén los archivos a incluir en el zip
+                foreach ($status as $statu) {
+                    if($statu->revision != "" && $statu->completado == 1){
+                        $file = public_path($statu->revision);
+                        if (file_exists($file)) {
+                            $relativeName = basename($file);
+                            $zip->addFile($file, $relativeName);
+                        }
+                    }
+                }
 
-        $zip->close();
+                $zip->close();
 
-        // Guarda la ruta del archivo ZIP en el registro de la tabla `historicos`
-        $historico->archivo = 'completado/' . $fileName;
-        $historico->save();
+                // Guarda la ruta del archivo ZIP en el registro de la tabla `historicos`
+                $historico->archivo = 'completado/' . $fileName;
+                $historico->save();
 
-        // Opcional: Elimina los archivos en `public/revision` después de comprimirlos
-        // foreach ($status as $statu) {
-        //     File::delete(public_path($statu->revision));
-        // }
+                // Opcional: Elimina los archivos en `public/revision` después de comprimirlos
+                // foreach ($status as $statu) {
+                //     File::delete(public_path($statu->revision));
+                // }
 
-        // Limpia las tablas `formularios` y `status`
-        \DB::table('formularios')->truncate();
-        \DB::table('status')->truncate();
+                // Limpia las tablas `formularios` y `status`
+                \DB::table('formularios')->truncate();
+                \DB::table('status')->truncate();
 
-        return response()->download($filePath);
+                // return response()->download($filePath);
+            }
+        }else{
+            // Retornar a la vista con un mensaje de que no hay archivos para decargar
+            return view('/admin.historico',['historicos' => $historicos])->with('no_archivos', true);
+        }
+        return redirect()->to('/historico')->with('historicos', $historicos);
     }
-
-    return redirect()->back()->with('error', 'No se pudo crear el archivo ZIP.');
-}
-
 }

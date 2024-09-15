@@ -19,12 +19,12 @@
                                 <label for="formulario" class="col-form-label">
                                     <h5>Seleccionar archivo:</h5>
                                 </label>
-                                <input class="form-control w-100 px-2 mb-0" type="file" id="formFile" name="formulario">
+                                <input class="form-control w-100 px-2 mb-0" type="file" id="formFile" name="formulario" required accept=".doc, .xlsx, .pdf">
                             </div>
                         </div>
 
                         <div class="card-footer ml-auto mr-auto">
-                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i> Actualizar</button>
                         </div>
                     </div>
                 </form>

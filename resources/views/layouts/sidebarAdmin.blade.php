@@ -34,23 +34,18 @@
                 <span class="nav-item">Historico</span>
             </a>
         </li>
-
-        <!-- <li>
-            <a href="#">
-            <i class="fa-regular fa-file"></i>
-                <span class="nav-item">CNGE_2023_M1_S3</span>
-            </a>
-            <span class="tooltip">01_3_CNGE_2023_M1_S3_VF_01jun23</span>
+        <div class="user mb-5 px-0"></div>
+        <div class="user mb-5 px-0"></div>
+        <div class="user mb-5 px-0"></div>
+        <!-- <div class="user mb-5 px-0"></div> -->
+         <li class="logo">
+            <!-- <a href="#" class="logo">  -->
+                <i><img class="me-2"  src="{{ asset('imagenes/upbLogoNegro.png')}}" alt=""></i>
+                <span class="nav-item"><img class=""  src="{{ asset('imagenes/upbLogoNegroCompleto.png')}}" alt=""><p class="ms-5 mt-3 text-white" style="font-size: 10px;">XC,HR,JO,PC</p></span>
+            <!-- </a> -->
         </li>
-
-        <li>
-            <a href="#">
-            <i class="fa-regular fa-file"></i>
-                <span class="nav-item">CNGE_2023_M1_S4</span>
-            </a>
-            <span class="tooltip">01_4_CNGE_2023_M1_S4_VF_28mar23</span>
-        </li> -->
     </ul>
+    
 </div>
 
 
@@ -60,5 +55,4 @@
     btn.onclick = function() {
         sidebar.classList.toggle('active');
     };
-    
 </script>

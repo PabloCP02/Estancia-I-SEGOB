@@ -7,7 +7,7 @@
                 <div>
                     <a href="#" class="logo me-3"> <img class=""  src="{{ asset('imagenes/escudo.png')}}" alt=""></a>
                     <a href="#" class="logo me-3"> <img class=""  src="{{ asset('imagenes/qroo.png')}}" alt=""></a>
-                    <!-- <a href="#" class="logo"> <img class=""  src="{{ asset('imagenes/upbLogo.png')}}" alt=""></a> -->
+                    <!-- <a href="#" class="logo"> <img class=""  src="{{ asset('imagenes/upbLogoNegro.png')}}" alt=""></a> -->
                 </div>
                 <input type="checkbox" id="menu" />
                 <label for="menu">

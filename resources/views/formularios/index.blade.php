@@ -112,7 +112,7 @@
                                                 @csrf
                                                 <input type="hidden" name="userId" class="userId" value="{{ auth()->user()->id }}">
                                                 <input type="hidden" name="statuId" class="statuId" value="{{$statu->id}}">
-                                                <input type="file" name="archivo" class="archivo form-control me-2" required>
+                                                <input type="file" name="archivo" class="archivo form-control me-2" required accept=".doc, .xlsx, .pdf">
                                                 <button type="submit" class="btn btn-primary botonArchivo"><i class="fa-solid fa-upload"></i> Subir archivo</button>
                                             </form>
                                             @else

@@ -19,28 +19,28 @@
                             <div class="row">
                                 <label for="username" class="col-sm-2 col-form-label">Nombre de la dependencia*:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" name="username" class="form-comtrol" placeholder="Nombre de la dependencia" autofocus>
+                                    <input type="text" name="username" class="form-comtrol" placeholder="Nombre de la dependencia" required autofocus>
                                 </div>
                             </div>
                             <!-- Responsable -->
                             <div class="row">
                                 <label for="name" class="col-sm-2 col-form-label">Nombre del responsable*:</label>
                                 <div class="col-sm-7">
-                                    <input type="text" name="name" class="form-comtrol" placeholder="Nombre del responsable" autofocus>
+                                    <input type="text" name="name" class="form-comtrol" placeholder="Nombre del responsable" required autofocus>
                                 </div>
                             </div>
                             <!-- Correo -->
                             <div class="row">
                                 <label for="name" class="col-sm-2 col-form-label">Correo electrónico*:</label>
                                 <div class="col-sm-7">
-                                    <input type="email" name="email" class="form-comtrol" placeholder="Correo electrónico" autofocus>
+                                    <input type="email" name="email" class="form-comtrol" placeholder="Correo electrónico" required autofocus>
                                 </div>
                             </div>
                             <!-- Contraseña -->
                             <div class="row">
                                 <label for="name" class="col-sm-2 col-form-label">Contraseña*:</label>
                                 <div class="col-sm-7">
-                                    <input type="password" name="password" class="form-comtrol" placeholder="Contraseña" autofocus>
+                                    <input type="password" name="password" class="form-comtrol" placeholder="Contraseña" required minlength="8" autofocus>
                                 </div>
                             </div>
                         </div>
