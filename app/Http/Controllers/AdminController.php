@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Formulario;
 use App\Models\Admin;
 use App\Models\Statu;
 use Illuminate\Http\Request;
@@ -17,12 +18,17 @@ class AdminController extends Controller
         // Obtener todos los usuarios de la BD
         $usuarios = User::all();
         
+        // Obtener todos los formularios para asignar de la BD
+        $formularios = Formulario::all();
+
         // Obtener el usuario autenticado, si hay alguno
         $usuario = auth()->user();
         
+        // Obtener el status de las dependencias
         $status = Statu::all();
+
         // Retornar la vista con la lista de usuarios y el usuario autenticado (si está definido)
-        return view('admin.index', ['usuarios' => $usuarios, 'usuario' => $usuario, 'status' => $status]);
+        return view('admin.index', ['usuarios' => $usuarios, 'formularios' => $formularios, 'usuario' => $usuario, 'status' => $status]);
     }
 
     /**
